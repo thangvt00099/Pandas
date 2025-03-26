@@ -1,0 +1,172 @@
+{
+    rapid = fast: nhanh,
+    insight: sáng suốt, cần mẫn,
+    essential: cần thiết,
+    criteria = standard: tiêu chuẩn,
+    hierarchical (adj): phân cấp,
+    redundancy (n): sự dư thừa,
+    particular (adj): cụ thể,
+    tedious (adj): tẻ nhạt,
+    hence (adv): kể từ đây,
+    innermost (adj): ở trong cùng,
+    outermost (adj): ngoài cùng,
+    skew (adj): nghiêng,
+    omit = skip = forget (v): bỏ qua, quên,
+    plain (adj) = obvious: đơn giản, giản dị, không rườm rà, minh bạch,
+    precisely (adv): chính xác, tỉ mỉ,
+    acronym: từ viết tắt,
+    collision = smash = concurrence (n): sự va chạm, sự đụng nhau,
+    messy = dirty (adj): bẩn thỉu, lộn xộn,
+    involve = call for = relate to (v): liên quan đến,
+    consistent (adj): nhất quán,
+    whereas: trong khi,
+    scenario (n): kịch bản,
+    encounter (n): bắt gặp, chạm chán, đụng độ
+    set_index(): chỉ định 1 cột thành index,
+    inplace=True: những thay đổi trên DF sẽ thay đổi trực tiếp trên DF gốc, ngược lại sẽ trả về DF mới, (chú ý các
+                đối tượng trung gian khi dùng inplace - chú ý phiên bản Pandas)
+    rename(): thay đổi tên index,
+    reset_index(): reset lại thành default index, cột index khi sử dụng rename trở thành 1 cột dữ liệu trong DF,
+    df.iloc[]: truy cập hàng và cột,
+    df.index: truy cập index,
+    dtype: chỉ định rõ ràng kiểu dữ liệu phần tử array,
+    head(n): hiện thị số lượng dòng tính từ vị trí bắt đầu tới vị trí được chỉ định khi truyền tham số vào, mặc định là
+             5 nếu không truyền,
+    tail(n): ngược với head(), lấy từ dưới lên,
+    info(): lấy thông tin tổng thể về dữ liệu như class, datatype, size,....
+    df.loc[]: thêm hàng mới,
+    drop(): xóa hàng và cột, axis = 0 => xóa hàng, axis = 1 => xóa cột,
+    query(): cho phép truy vấn dữ liệu như 1 câu lệnh SQL trong Pandas,
+    isin(): lọc dữ liệu dựa trên 1 danh sách,
+    sort_values(): sắp xếp dữ liệu theo cột,
+    pivot(index=None, columns=None, values=None): định hình dữ liệu dựa trên giá trị các cột,
+    aggfunc='mean': hàm tổng hợp sử dụng để tính trung bình giá trị dựa trên các cột,
+    stack(): xếp chồng các cột trong DataFrame thành các hàng Series đa cấp  (multi level)
+    drop_duplicates(): mặc định giữ lại bản ghi đầu tiên và xóa các sự trùng lặp ở sau |
+            sử dụng keep='last' để giữ cuối xóa đầu,
+    CSV (Comma-Separated Values): giá trị phân tách bằng dấu phẩy,
+    read_csv(): đọc file CSV từ DataFrame,
+    to_csv(): viết dữ liệu từ DataFrame vào file CSV,
+    read_json(): đọc file JSON từ DataFrame,
+    read_fwf(): đọc cái file văn bản có định dạng cố định về độ rộng cột (fixed-width formatted),
+    read_table(): đọc dữ liệu dạng bảng, các cột ngăn cách bởi 1 ký tự cụ thể (mặc định là \t),
+    merge(): hợp 2 DataFrame (tương tự JOIN trong SQL) dựa trên index hoặc 1 cột được chỉ định
+    join(): nối 2 DataFrame dựa trên index,
+    concat(): nối 2 hoặc nhiều DataFrame với nhau (tương tự UNION ALL trong SQL),
+    df.dropna(): loại bỏ các hàng dữ liệu thiếu giá trị (ít nhất 1 giá trị thiếu)
+    df.fillna(): điền các giá trị dữ liệu bị thiếu
+    mode(): trả về danh sách (Series) có thể truy cập bằng chỉ mục (index),
+    astype(): chuyển đổi kiểu dữ liệu của các cột trong DataFrame hoặc Series,
+    pd.to_datetime(): chuyển đổi dữ liệu sang kiểu thời gian (datetime),
+    get_dummies(): chuyển đổi các biến phân loại (categorical variable) thành các biến giả (dummy variable)
+            có nghĩa là thành kiểu nhị phân 0 - 1
+
+}
+
+{
+    loc (label-based indexing): truy cập dữ liệu theo tên nhãn hàng và cột, tính cả điểm kết thúc và hỗ trợ
+                                boolean indexing,
+    iloc (integer-based indexing): truy cập dữ liệu theo chỉ số hàng và cột, không tính điểm kết thúc và không
+                                hỗ trợ boolean indexing,
+    stack(), melt(): chuyển định dạng dữ liệu từ rộng sang dài,
+    unstack(), pivot(): chuyển định dạng dữ liệu từ dài sang rộng,
+    pivot_table(): giống pivot nhưng cho phép thực hiện các phép tính tổng hợp (aggfunc)
+}
+
+{
+    pd.merge(
+        left,
+        right,
+        on=None,
+        how='inner', - default inner
+        left_on=None,
+        right_on=None,
+        sort=False
+    )
+    - left_on và right_on: sử dụng khi 2 DataFrame có 2 cột tên khác nhau nhưng dữ liệu tương tự
+    - on: khi 2 DataFrame có 1 cột chung để kết hợp
+    - how: giống JOIN trong SQL, chỉ định kiểu kết hợp (INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN)
+    - sort: sắp xếp kết quả dữ liệu dựa trên cột được chọn 1 khóa để kết hợp 2 DataFrame,
+
+    df1.join(
+        df2,
+        on=None,
+        how='left', - default left
+        lsuffix='',
+        rsuffix='',
+        sort=False
+    )
+
+    pd.concat(
+        objs,
+        axis=0,
+        join='outer',
+        ignore_index=False,
+        keys=None,
+        levels=None,
+        names=None,
+        verify_integrity=False,
+        sort=False,
+        copy=True
+    )
+    - ignore_index: False (là index ban đầu của các DataFrame), True (thiết lập lại 1 index duy nhất từ 0)
+    - axis=1: join mặc định là outer, các giá trị không khớp hiển thị NaN
+}
+
+{
+    read_csv(
+        filepath_or_buffer,
+        sep=',',
+        header=0,
+        names=[col1, col2, col3],
+        index_col=col1,
+        usecols=[col1, col3],
+        skiprows=[1, 3],
+        nrows=100,
+        skipinitialspace=True
+    ),
+
+    to_csv(
+        path_or_buf,
+        sep=',',
+        header=True,
+        index=False,
+        mode='w',
+        encoding=None,
+        quoting=None,
+        line_terminator='\n'
+    ),
+
+    read_json(
+        filepath_or_buffer,
+        orient=None,
+        typ='frame',
+        numpy=False,
+        precise_float=False,
+        encoding=None,
+        lines=False
+    ),
+
+    to_json(
+        path_or_buf,
+        orient= 'columns',
+        lines=False,
+        compression='infer',
+        index=True
+    ),
+
+    read_fwf(
+        filepath_or_buffer,
+        colspecs=[], - chỉ định số kí tự mỗi cột dạng tuple
+        widths=None,
+        infer_nrows=100,
+        **kwds
+    ),
+
+    read_table(
+        filepath_or_buffer,
+        sep='\t',
+        header='infer',
+        names=None
+    )
+}
