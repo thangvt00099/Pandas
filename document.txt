@@ -21,7 +21,16 @@
     consistent (adj): nhất quán,
     whereas: trong khi,
     scenario (n): kịch bản,
-    encounter (n): bắt gặp, chạm chán, đụng độ
+    encounter (n): bắt gặp, chạm chán, đụng độ,
+    handy (adj): tiện dụng, dễ cầm, dễ dùng,
+    interpretation (n): sự giải thích,
+    statistical = statistic (adj): thống kê,
+    aggregation (n): tập hợp lại,
+    stock prices: giá cổ phiếu,
+    economic indicators: chỉ số kinh tế
+}
+
+{
     set_index(): chỉ định 1 cột thành index,
     inplace=True: những thay đổi trên DF sẽ thay đổi trực tiếp trên DF gốc, ngược lại sẽ trả về DF mới, (chú ý các
                 đối tượng trung gian khi dùng inplace - chú ý phiên bản Pandas)
@@ -57,9 +66,17 @@
     df.fillna(): điền các giá trị dữ liệu bị thiếu
     mode(): trả về danh sách (Series) có thể truy cập bằng chỉ mục (index),
     astype(): chuyển đổi kiểu dữ liệu của các cột trong DataFrame hoặc Series,
-    pd.to_datetime(): chuyển đổi dữ liệu sang kiểu thời gian (datetime),
+    pd.to_datetime(): chuyển đổi chuỗi sang đối tượng Datetime, mặc định là định dạng YYYY-MM-DD
     get_dummies(): chuyển đổi các biến phân loại (categorical variable) thành các biến giả (dummy variable)
-            có nghĩa là thành kiểu nhị phân 0 - 1
+            có nghĩa là thành kiểu nhị phân 0 - 1,
+    pd.Categorical(): tạo 1 dữ liệu phân loại từ chuỗi giá trị,
+    .cat accessor: sử dụng để làm việc với dữ liệu kiểu phân loại (Category) trong Series hoặc DataFrame,
+    .cat.categories: trả về danh sách các giá trị phân loại có trong Series dưới dạng 1 đối tượng Index,
+    .cat.codes: trả về mảng số nguyên, mỗi số nguyên đại diện cho một giá trị phân loại,
+    .cat.rename_categories(): đổi tên các danh mục,
+    .cat.add_categories(): thêm các danh mục mới,
+    .cat.remove_categories(): xóa cac danh mục,
+    [Category].ordered: kiểm tra xem biến danh mục được sắp xếp hay không => trả về True/False
 
 }
 
